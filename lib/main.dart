@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'ColorzScreen.dart';
 import 'Forgtpas.dart';
 import 'Intro.dart';
+import 'controlSys.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,8 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-     initialRoute: '/Intro',
+     initialRoute: '/ColorzScreen',
       routes: {'/Forgtpas':(context)=>Forgtpas(),
+        '/Controls':(context)=>Controls(),
        '/SignUp':(context)=>SignUp(),
        '/Intro':(context) => IntroScreen(),
       '/ColorzScreen':(context) => AllColors(),

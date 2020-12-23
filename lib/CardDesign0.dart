@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:math';
 
+import 'ColorzScreen.dart';
+
 class CardDesign1 extends StatefulWidget {
 
   @override
@@ -12,7 +14,7 @@ class CardDesign1 extends StatefulWidget {
 }
 
 class _CardDesign1State extends State<CardDesign1> {
-
+  AllColors all=AllColors();
 
   int pos=0;
 
@@ -43,11 +45,13 @@ class _CardDesign1State extends State<CardDesign1> {
   @override
   Widget build(BuildContext context) {
 
+
     /**
      * Generate random colors
      */
 
     Color coleurs(){
+
      setState(() {
        pos=rand.nextInt(11);
      });
@@ -66,7 +70,9 @@ class _CardDesign1State extends State<CardDesign1> {
 
           ]
       ),
-      child: Scaffold(backgroundColor: Colors.blueGrey,
+      child: Scaffold(
+
+        backgroundColor: all.screens(),/////////**//
 
         body: Padding(
           padding: const EdgeInsets.all(10.0),

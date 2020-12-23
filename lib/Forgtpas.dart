@@ -16,7 +16,7 @@ class _ForgtpasState extends State<Forgtpas> {
 
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text('Register Here'),
+        title: Text('Recover password'),
         backgroundColor: Colors.grey,
       ),
       body: Padding(
@@ -26,6 +26,13 @@ class _ForgtpasState extends State<Forgtpas> {
             SizedBox(
               height: 88,
             ),
+            Container(
+
+              color: Colors.cyan[50],
+
+
+              child: Text('CHECK YOUR EMAIL AFTER SUBMISSION.'),),
+            SizedBox(height: 45,),
             TextField(
                 style: TextStyle(color: Colors.green),
                 onChanged: (value) {
@@ -55,6 +62,7 @@ class _ForgtpasState extends State<Forgtpas> {
                   if (email != null) {
                     Navigator.pushNamed(context, '/Intro');
                   }
+                  else{Navigator.pushNamed(context, '/Forgtpas');}
                 } catch (e) {
 
 

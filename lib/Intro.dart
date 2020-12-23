@@ -179,7 +179,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 height: 60,
                 child: new RaisedButton.icon(onPressed: (){
 
-                  Navigator.pushNamed(context, 'Forgtpas');
+                  Navigator.pushNamed(context, '/Forgtpas');
 
                 },
                   shape: RoundedRectangleBorder(

@@ -5,15 +5,50 @@ import 'CardDesign0.dart';
 
 class AllColors extends StatefulWidget {
 
+  int _index;
+  Color k;
+
+  int get index => _index;
+
+  set index(int value) {
+    _index = value;
+  }
+
+  Color mainColors(Color k){
+
+    return k;
+  }
+
+  Color screens(){
+
+    Color ty;
+    return ty;
+  }
+
   @override
   _AllColorsState createState() => _AllColorsState();
 
 }
 
 class _AllColorsState extends State<AllColors> {
+  CardDesign1 design=new CardDesign1();
+AllColors col=AllColors();
+
+  int _index;
+  Color k;
+
+  int get index => _index;
+
+  set index(int value) {
+    _index = value;
+  }
+
+  List coList=[Colors.blueGrey,Colors.black];
 
   @override
   Widget build(BuildContext context) {
+
+
 
     setState(() {
       SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.portraitUp]);
@@ -47,9 +82,20 @@ class _AllColorsState extends State<AllColors> {
              width: double.infinity,
              child: Padding(
                padding: const EdgeInsets.all(8.0),
-               child: new RaisedButton.icon(onPressed: (){
+               child: new RaisedButton.icon(
+
+                 onPressed: (){
+                   index=1;
+
+                   print(index);
+                   col.mainColors(coList[index]);
+
+
+
+
                  Navigator.pushNamed(context, '/CardDesign1');
                  setState(() {
+
                    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
                  });
@@ -80,9 +126,19 @@ class _AllColorsState extends State<AllColors> {
                    ]
                ),
                width: double.infinity,
-               child: new RaisedButton.icon(onPressed: (){
+               child: new RaisedButton.icon(
 
+                 onPressed: (){
+
+                   col.mainColors(Colors.yellow);
+
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
+
+                 });
                },
+
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
                  color: Colors.grey,
@@ -102,7 +158,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -123,7 +183,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child:new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -144,7 +208,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child:new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -165,7 +233,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -186,7 +258,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -207,7 +283,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -228,7 +308,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -249,7 +333,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -270,7 +358,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -291,7 +383,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -312,7 +408,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -333,7 +433,11 @@ class _AllColorsState extends State<AllColors> {
              child: Container(
                width: double.infinity,
                child: new RaisedButton.icon(onPressed: (){
+                 Navigator.pushNamed(context, '/CardDesign1');
+                 setState(() {
+                   SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+                 });
                },
                  shape: RoundedRectangleBorder(
                      borderRadius: BorderRadius.circular(10)),
@@ -355,5 +459,10 @@ class _AllColorsState extends State<AllColors> {
         ),
       ),
     );
+
+
   }
 }
+
+
+
