@@ -22,6 +22,10 @@ class _CardDesign1State extends State<CardDesign1> {
     Colors.lightGreen,Colors.deepPurpleAccent,Colors.yellow,Colors.black12,
     Colors.transparent,Colors.brown];
 
+  List colrs=[Colors.blueGrey,Colors.black,Colors.white,Colors.red,Colors.yellow,
+  Colors.green,Colors.blue,Colors.brown,Colors.pink,Colors.purple,Colors.orange,
+    Colors.indigo,Colors.teal,Colors.lime,Colors.transparent];
+
 
   Random rand=new Random();
 
@@ -45,7 +49,12 @@ class _CardDesign1State extends State<CardDesign1> {
   @override
   Widget build(BuildContext context) {
 
+    Color cols(){
 
+      setState(() {
+        pos=rand.nextInt(14);
+      });
+      return colrs[pos]; }
     /**
      * Generate random colors
      */
@@ -72,7 +81,7 @@ class _CardDesign1State extends State<CardDesign1> {
       ),
       child: Scaffold(
 
-        backgroundColor: all.screens(),/////////**//
+        backgroundColor: cols(),/////////**//
 
         body: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -170,11 +179,10 @@ class _CardDesign1State extends State<CardDesign1> {
                   ),
 
                   width: 400,
-
                   height: 0,
                   child: RotatedBox(quarterTurns: 1,child: Center(
                     child: Text('${'\t\t\tBASIC APPS\t\t\t'}',
-                      style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 34),),
+                      style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 45),),
                   ),),
 
                 ),),

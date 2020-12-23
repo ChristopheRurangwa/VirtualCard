@@ -5,26 +5,6 @@ import 'CardDesign0.dart';
 
 class AllColors extends StatefulWidget {
 
-  int _index;
-  Color k;
-
-  int get index => _index;
-
-  set index(int value) {
-    _index = value;
-  }
-
-  Color mainColors(Color k){
-
-    return k;
-  }
-
-  Color screens(){
-
-    Color ty;
-    return ty;
-  }
-
   @override
   _AllColorsState createState() => _AllColorsState();
 
@@ -32,23 +12,14 @@ class AllColors extends StatefulWidget {
 
 class _AllColorsState extends State<AllColors> {
   CardDesign1 design=new CardDesign1();
-AllColors col=AllColors();
 
-  int _index;
-  Color k;
 
-  int get index => _index;
 
-  set index(int value) {
-    _index = value;
-  }
 
   List coList=[Colors.blueGrey,Colors.black];
 
   @override
   Widget build(BuildContext context) {
-
-
 
     setState(() {
       SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.portraitUp]);
@@ -85,10 +56,7 @@ AllColors col=AllColors();
                child: new RaisedButton.icon(
 
                  onPressed: (){
-                   index=1;
 
-                   print(index);
-                   col.mainColors(coList[index]);
 
 
 
@@ -130,7 +98,7 @@ AllColors col=AllColors();
 
                  onPressed: (){
 
-                   col.mainColors(Colors.yellow);
+
 
                  Navigator.pushNamed(context, '/CardDesign1');
                  setState(() {

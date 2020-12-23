@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Controls extends StatefulWidget {
   @override
@@ -23,27 +24,13 @@ class _ControlsState extends State<Controls> {
               mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            new RaisedButton.icon(onPressed: (){
 
-              Navigator.pushNamed(context, '/ColorzScreen');
-
-    },
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10)),
-        color: Colors.greenAccent,
-        icon: Icon(Icons.color_lens),
-
-
-        splashColor: Colors.blueAccent,
-        disabledColor: Colors.green,
-        elevation: 22,
-        animationDuration: Duration(seconds: 3),
-                label: Text('Background Colors'), ),
-
-            SizedBox(height: 50,),
             new RaisedButton.icon(onPressed: (){
             Navigator.pushNamed(context, '/CardDesign1') ;
+            setState(() {
+              SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
+            });
 
             },
               shape: RoundedRectangleBorder(

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-     initialRoute: '/ColorzScreen',
+     initialRoute: '/Controls',
       routes: {'/Forgtpas':(context)=>Forgtpas(),
         '/Controls':(context)=>Controls(),
        '/SignUp':(context)=>SignUp(),
