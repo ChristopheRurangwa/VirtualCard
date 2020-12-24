@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(initialRoute: '/Controls', routes: {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/Intro', routes: {
       '/Forgtpas': (context) => Forgtpas(),
       '/Controls': (context) => Controls(),
       '/SignUp': (context) => SignUp(),

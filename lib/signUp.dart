@@ -75,7 +75,7 @@ class _SignUpState extends State<SignUp> {
                               email: email, password: password))
                       .user;
                   if (user != null) {
-                    Navigator.pushNamed(context, '/ColorzScreen');
+                    Navigator.pushNamed(context, '/Controls');
                   }
                 } catch (e) {
 
