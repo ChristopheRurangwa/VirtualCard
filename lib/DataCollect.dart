@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DataCollect extends StatefulWidget {
   @override
@@ -9,14 +12,24 @@ class DataCollect extends StatefulWidget {
 
 class _DataCollectState extends State<DataCollect> {
 
-String fName="";
-String lName="";
+String _fName="";
+
+String get fName => _fName;
+  String lName="";
 String title="";
 String company="";
 String website="";
 String email="";
 String phone="";
 String address="";
+
+Map data;
+
+void retrieveData(Map val){
+
+  CollectionReference collectionReference = FirebaseFirestore.instance.collection('v-cards');
+  collectionReference.add(val);
+}
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +50,7 @@ String address="";
             Container(
               child: TextField(
                 onChanged: (text){
-                  fName=text;
+                  _fName=text;
                 },
 
                 cursorColor: Colors.green,
@@ -195,6 +208,24 @@ String address="";
         Padding(
           padding: const EdgeInsets.all(16.0),
           child:new RaisedButton.icon(onPressed: (){
+            Map<String,dynamic> val={
+              'Fname':fName,
+              'Lname':lName,
+              'Title':title,
+              'Website':website,
+              'Phone':phone,
+              'Company':company,
+              'Address':address,
+              'E-mail':email,
+
+            };
+            retrieveData(val);
+
+            setState(() {
+              SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
+
+            });
+            Navigator.pushNamed(context, '/CardDesign1');
 
 
 

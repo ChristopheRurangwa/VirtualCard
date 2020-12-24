@@ -1,3 +1,5 @@
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:math';
 
 import 'ColorzScreen.dart';
+import 'DataCollect.dart';
 
 class CardDesign1 extends StatefulWidget {
 
@@ -14,7 +17,11 @@ class CardDesign1 extends StatefulWidget {
 }
 
 class _CardDesign1State extends State<CardDesign1> {
-  AllColors all=AllColors();
+
+  DataCollect dataCol= DataCollect();
+
+
+
 
   int pos=0;
 
@@ -29,13 +36,32 @@ class _CardDesign1State extends State<CardDesign1> {
 
   Random rand=new Random();
 
+Map data;
+
+
+  void getData(){
+try{
+    CollectionReference collectionReference = FirebaseFirestore.instance.collection('v-cards');
+    collectionReference.snapshots().listen((snapshot) {
+
+      setState(() {
+        try{
+        // ignore: deprecated_member_use
+        data=snapshot.documents[0].data();}catch(e){
+          print(e);
+        }
+
+      });
+    });}catch(e){print(e);}
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
     setState(() {
-
+        getData();
       SystemChrome.setPreferredOrientations([
 
         DeviceOrientation.portraitUp,
@@ -81,7 +107,7 @@ class _CardDesign1State extends State<CardDesign1> {
       ),
       child: Scaffold(
 
-        backgroundColor: cols(),/////////**//
+        backgroundColor: cols(),
 
         body: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -138,25 +164,38 @@ class _CardDesign1State extends State<CardDesign1> {
               ),
               Positioned(
 
-              top: 310,
-              left: 10,
-      bottom: 130,
+              top: 320,
+              left: 19,
+                bottom: 130,
                   child: Transform.rotate(
                     angle: 1,
-                    child: Container(
+                    child: RaisedButton(
+                      color: coleurs(),
 
-                      decoration: BoxDecoration(
-                          color: coleurs(),borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(color: coleurs().withOpacity(0.6),blurRadius: 4,spreadRadius:4,offset: Offset(0, 2)),
+                      onPressed: (){
 
-                          ]
-                      ),
+                        Navigator.pushNamed(context, '/CardDesign1').then((value) => setState((){}));
+                        setState(() {
+                          SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
+                          SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight,DeviceOrientation.landscapeLeft]);
+
+                        });
+                      },
+                      child: Container(
+
+                        decoration: BoxDecoration(
+                            color: coleurs(),borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(color: coleurs().withOpacity(0.6),blurRadius: 4,spreadRadius:4,offset: Offset(0, 2)),
+
+                            ]
+                        ),
 
       width: 279,
 
       height: 0,
 
+                      ),
                     ),
                   ),),
 
@@ -181,7 +220,7 @@ class _CardDesign1State extends State<CardDesign1> {
                   width: 400,
                   height: 0,
                   child: RotatedBox(quarterTurns: 1,child: Center(
-                    child: Text('${'\t\t\tBASIC APPS\t\t\t'}',
+                    child: Text('${'\t\t\t${data['Company'].toString()==null?data['Company'].toString():data['Company'].toString()}\t\t\t'}',
                       style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 45),),
                   ),),
 
@@ -216,25 +255,27 @@ class _CardDesign1State extends State<CardDesign1> {
                 left: 20,
 
                 child: Container(
+                  
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t PHONE\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
+
+                      RotatedBox(quarterTurns: 1,child: Text('\t\t\t ${data['Phone'].toString()}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
                       SizedBox(width: 5,),
-                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t ADDRESS\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
+                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t ${data['Address'].toString()}\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
                       SizedBox(width: 5,),
-                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t COMPANY\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
+                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t ${data['Company'].toString()}\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
                       SizedBox(width: 5,),
-                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t WEBSITE\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
+                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t ${data['Website'].toString()}\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
                       SizedBox(width: 5,),
-                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t E-EMAIL\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
+                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t ${data['E-mail'].toString()}\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
                       SizedBox(width: 5,),
-                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t TITLE\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
+                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t ${data['Title'].toString()}\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
                       SizedBox(width: 5,),
-                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t LAST NAME\t\t'}', style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
+                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t ${data['Lname'].toString()}\t\t'}', style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
                       SizedBox(width: 5,),
-                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t FIRST NAME\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
+                      RotatedBox(quarterTurns: 1,child: Text('${'\t\t\t ${data['Fname'].toString()}\t\t'}',style: GoogleFonts.caveat(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,fontSize: 20),),),
 
 
                     ],
