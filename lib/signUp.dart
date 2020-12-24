@@ -82,6 +82,7 @@ class _SignUpState extends State<SignUp> {
 
                   print(e);
                 }
+
               },
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
