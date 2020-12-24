@@ -15,23 +15,18 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-
-     initialRoute: '/Controls',
-      routes: {'/Forgtpas':(context)=>Forgtpas(),
-        '/Controls':(context)=>Controls(),
-       '/SignUp':(context)=>SignUp(),
-       '/Intro':(context) => IntroScreen(),
-      '/ColorzScreen':(context) => AllColors(),
-        '/DataCollect':(context)=>DataCollect(),
-        '/CardDesign1':(context)=>CardDesign1(),
-
-      });
+    return MaterialApp(initialRoute: '/Controls', routes: {
+      '/Forgtpas': (context) => Forgtpas(),
+      '/Controls': (context) => Controls(),
+      '/SignUp': (context) => SignUp(),
+      '/Intro': (context) => IntroScreen(),
+      '/ColorzScreen': (context) => AllColors(),
+      '/DataCollect': (context) => DataCollect(),
+      '/CardDesign1': (context) => CardDesign1(),
+    });
   }
 }
 
@@ -45,22 +40,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
-
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-
         title: Text(widget.title),
       ),
       body: Center(
-
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
@@ -69,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-
     );
   }
 }
